@@ -1,0 +1,16 @@
+type Record {
+  id: ID!
+  user: User
+  score: Int! # 점수
+  stage: Int! # 클리어한 스테이지
+  playTime: Int! #seconds
+  date: Int!
+}
+
+type User {
+  id: ID!
+  email: String!
+  password: String!
+  name: String
+  Records: [Record!]!
+}

@@ -1,0 +1,4 @@
+prisma.yml
+node_modules
+generated
+package-lock.json
