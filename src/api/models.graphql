@@ -12,5 +12,11 @@ type User {
   email: String!
   password: String!
   name: String
-  Records: [Record!]!
+  Records: [Record]
+}
+
+type AuthPayload {
+  id: ID!
+  token: String
+  user: User
 }

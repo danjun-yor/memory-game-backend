@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken";
-
-const APP_SECRET = "awesome-memory-game";
+import { APP_SECRET } from "./secret";
 
 function getUser(token: string) {
   const user = jwt.verify(token, APP_SECRET);

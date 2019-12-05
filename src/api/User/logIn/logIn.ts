@@ -8,7 +8,7 @@ export default {
       if (exists) {
         throw Error("This username is already taken");
       }
-      await prisma.logIn({
+      await prisma.createUser({
         name,
         email,
         password
