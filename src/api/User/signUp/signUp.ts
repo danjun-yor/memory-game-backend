@@ -20,7 +20,7 @@ export default {
         password: bcryptPassword
       });
 
-      const token = jwt.sign({ userId: user.id }, APP_SECRET);
+      const token = jwt.sign({ id: user.id, name, email }, APP_SECRET);
 
       return {
         token,

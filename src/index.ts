@@ -10,13 +10,9 @@ const server = new ApolloServer({
     const token = req.headers.authorization || "";
 
     if (token) {
-      const user = getUser(token);
+      const user = getUser(token.split(" ")[1]);
 
-      // if (!user) throw new AuthenticationError("로그인이 필요합니다.");
-
-      return {
-        user
-      };
+      return user;
     } else {
       return {};
     }

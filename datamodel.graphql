@@ -14,9 +14,3 @@ type User {
   name: String
   Records: [Record!]
 }
-
-type AuthPayload {
-  id: ID! @id
-  token: String
-  user: User
-}

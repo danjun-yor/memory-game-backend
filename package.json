@@ -6,6 +6,7 @@
   "scripts": {
     "start": "nodemon src/index.ts",
     "deploy": "prisma deploy",
+    "force-deploy": "prisma deploy --force",
     "generate": "prisma generate",
     "prisma": "npm run generate && npm run deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
