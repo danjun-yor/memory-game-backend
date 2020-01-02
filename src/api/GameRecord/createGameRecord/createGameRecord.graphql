@@ -1,5 +1,5 @@
 type Mutation {
-  createRecord(score: Int!, stage: Int!, playTime: Int!): Boolean!
+  createGameRecord(score: Int!, stage: Int!, playTime: Int!): Boolean!
 }
 
 type Query {

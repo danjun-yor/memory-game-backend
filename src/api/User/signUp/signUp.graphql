@@ -1,8 +1,7 @@
 type Query {
-  getUsers: [User!]!
+  nothing: String!
 }
 
 type Mutation {
-  signIn(email: String!, password: String!): AuthPayload!
   signUp(name: String!, email: String!, password: String!): AuthPayload!
 }
