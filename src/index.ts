@@ -1,11 +1,10 @@
 import { ApolloServer, gql, AuthenticationError } from "apollo-server";
-import { typeDefs, resolvers } from "./schema";
+import schema from "./schema";
 import { ExpressContext } from "apollo-server-express/dist/ApolloServer";
 import { getUser } from "./utils";
 
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  schema,
   context: ({ req }: ExpressContext) => {
     const token = req.headers.authorization || "";
 

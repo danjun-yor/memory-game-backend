@@ -2,8 +2,8 @@ import { prisma } from "../../../../generated/prisma-client";
 
 export default {
   Query: {
-    getRecords: async (_: any, args: any) => {
-      return prisma.records({
+    getGameRecords: async (_: any, args: any) => {
+      return prisma.gameRecords({
         orderBy: "score_DESC"
       });
     }

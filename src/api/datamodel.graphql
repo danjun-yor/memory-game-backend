@@ -1,16 +1,26 @@
-type Record {
+scalar DateTime
+
+type GameRecord {
   id: ID! @id
   user: User
   score: Int! # 점수
   stage: Int! # 클리어한 스테이지
   playTime: Int! #seconds
   createdAt: DateTime! @createdAt
+  updatedAt: DateTime
 }
 
 type User {
   id: ID! @id
-  email: String!
+  email: String! @unique
   password: String!
   name: String
-  Records: [Record!]
+  records: [GameRecord]!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime
+}
+
+type AuthPayload {
+  id: ID! @id
+  token: String!
 }
