@@ -1,7 +1,7 @@
 import { ApolloServer, gql, AuthenticationError } from "apollo-server";
 import schema from "./schema";
 import { ExpressContext } from "apollo-server-express/dist/ApolloServer";
-import { getUser } from "./utils";
+import { getUserId } from "./utils";
 
 const server = new ApolloServer({
   schema,
@@ -9,11 +9,13 @@ const server = new ApolloServer({
     const token = req.headers.authorization || "";
 
     if (token) {
-      const user = getUser(token.split(" ")[1]);
+      const user = getUserId(token.split(" ")[1]);
 
       return user;
     } else {
-      return {};
+      return {
+        id: ""
+      };
     }
   },
   debug: false
