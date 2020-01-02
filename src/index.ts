@@ -15,7 +15,8 @@ const server = new ApolloServer({
     } else {
       return {};
     }
-  }
+  },
+  debug: false
 });
 
 server.listen().then(({ url }) => {
