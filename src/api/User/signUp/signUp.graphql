@@ -1,5 +1,5 @@
 type Query {
-  nothing: String!
+  something: String!
 }
 
 type Mutation {

@@ -1,40 +1,23 @@
 import { prisma, GameRecord, User } from "../../../../generated/prisma-client";
 import { APP_SECRET } from "../../../utils";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export default {
-  Mutation: {
-    signIn: async (_: any, args: any) => {
-      const { email, password } = args;
-      const isValid = await prisma.$exists.user({ email, password });
+  Query: {
+    signIn: async (_: any, { email, password }: any) => {
+      const existsEmail = await prisma.$exists.user({ email });
 
-      if (!isValid) {
-        throw Error("Login failed");
+      if (!existsEmail) {
+        throw Error("Email not exists.");
       }
 
-      const user = await prisma.user({ email }).$fragment<
-        User & {
-          records: GameRecord[];
-        }
-      >(`
-        fragment UserWithRecords on User {
-          email
-          records {
-            score
-          }
-        }
-      `);
+      const user = await prisma.user({ email });
 
-      if (user) {
-        const { id, records } = user;
-        const token = jwt.sign({ id }, APP_SECRET);
+      if (user && (await bcrypt.compare(password, user.password))) {
+        const token = jwt.sign({ id: user.id }, APP_SECRET);
         return {
-          token,
-          user: {
-            email,
-            name,
-            records
-          }
+          token
         };
       }
       return false;
