@@ -9,7 +9,7 @@ export default {
       const existsEmail = await prisma.$exists.user({ email });
 
       if (!existsEmail) {
-        throw Error("Email not exists.");
+        throw new Error("Email not exists.");
       }
 
       const user = await prisma.user({ email });
@@ -20,7 +20,7 @@ export default {
           token
         };
       }
-      throw Error("Password is wrong.");
+      throw new Error("Password is wrong.");
     }
   }
 };

@@ -11,7 +11,7 @@ export default {
 
       const exists = await prisma.$exists.user({ email });
       if (exists) {
-        throw Error("이미 존재하는 이메일입니다.");
+        throw new Error("The email already exists.");
       }
 
       const user = await prisma.createUser({
@@ -23,12 +23,7 @@ export default {
       const token = jwt.sign({ id: user.id }, APP_SECRET);
 
       return {
-        token,
-        user: {
-          email: user.email,
-          name: user.name,
-          records: []
-        }
+        token
       };
     }
   }
