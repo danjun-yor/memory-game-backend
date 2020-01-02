@@ -20,7 +20,7 @@ export default {
           token
         };
       }
-      return false;
+      throw Error("Password is wrong.");
     }
   }
 };
