@@ -1,0 +1,7 @@
+type Mutation {
+  saveMyRecord(score: Int!, stage: Int!, playTime: Int!): Boolean!
+}
+
+type Query {
+  something: String!
+}
