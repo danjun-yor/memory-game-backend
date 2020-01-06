@@ -9,18 +9,19 @@ export default {
       const existsEmail = await prisma.$exists.user({ email });
 
       if (!existsEmail) {
-        throw new Error("Email not exists.");
+        throw new Error("이메일을 확인해주세요.");
       }
 
       const user = await prisma.user({ email });
+      const records = await prisma.user({ email }).records();
 
       if (user && (await bcrypt.compare(password, user.password))) {
-        const token = jwt.sign({ id: user.id }, APP_SECRET);
+        const token = jwt.sign({ ...user, records: [...records] }, APP_SECRET);
         return {
           token
         };
       }
-      throw new Error("Password is wrong.");
+      throw new Error("비밀번호를 잘못 입력했습니다.");
     }
   }
 };
