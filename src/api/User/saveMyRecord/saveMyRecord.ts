@@ -1,5 +1,4 @@
 import { prisma } from "../../../../generated/prisma-client";
-import { ResolverFn } from "apollo-server";
 
 export default {
   Mutation: {

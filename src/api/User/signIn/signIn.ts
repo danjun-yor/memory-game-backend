@@ -1,4 +1,4 @@
-import { prisma, GameRecord, User } from "../../../../generated/prisma-client";
+import { prisma } from "../../../../generated/prisma-client";
 import { APP_SECRET } from "../../../utils";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
