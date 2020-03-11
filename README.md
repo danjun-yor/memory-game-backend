@@ -1,0 +1,2 @@
+# memory-game-backend
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7870d1694a0f49e3990860cfa16109d7)](https://app.codacy.com/manual/vic2ori/memory-game-backend?utm_source=github.com&utm_medium=referral&utm_content=danjun-yor/memory-game-backend&utm_campaign=Badge_Grade_Dashboard)
